@@ -14,10 +14,9 @@ module.exports = {
       },
       margin:{
         "mxy-auto":"0 auto"
+      },width:{
+        '50':'50%'
       },
-      width:{
-        '':''
-      }
     },
   },
   plugins: [],
