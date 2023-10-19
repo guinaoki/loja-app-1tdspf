@@ -2,5 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-ul{ @apply m-mxy-auto}
-li{ @apply inline p-2 text-lg}
+@layer components {
+  .cabecalho {
+    @apply bg-slate-800 text-white font-bold py-2 px-4 text-center text-4xl;
+
+    & ul{
+        @apply flex flex-row text-lg my-0;
+
+        & li{
+            @apply mx-auto;
+
+            & a{
+                @apply block hover:bg-amber-400 py-1 px-3 rounded-md transition duration-200 ease-out;
+            }
+        }
+    }
+  }
+
+  .rodape {
+    @apply fixed w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-4xl;
+            
+    
+            & a{
+                @apply block  hover:bg-amber-400 py-1 px-3 rounded-md transition duration-300 ease-out;
+            }
+        
+    }
+
+}
