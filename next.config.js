@@ -11,6 +11,12 @@ module.exports = {
                 port: '',
                 pathname: '/images/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubuserscontent.com',
+                port: '',
+                pathname: '/ul/**',
+            },
         ],
      },
 }
