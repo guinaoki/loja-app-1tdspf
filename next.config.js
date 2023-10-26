@@ -5,6 +5,7 @@ module.exports = {
      images: {
         remotePatterns: [
             //protocol, hostname, port, and pathname 
+            
             {
                 protocol: 'https',
                 hostname: 'http.cat',
@@ -13,10 +14,18 @@ module.exports = {
             },
             {
                 protocol: 'https',
-                hostname: 'avatars.githubuserscontent.com',
+                hostname: 'avatars.githubusercontent.com',
                 port: '',
-                pathname: '/ul/**',
+                pathname: '/u/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'img.freepik.com',
+                port: '',
+                pathname: '/fotos-gratis/**',
+            },
+
+
         ],
      },
 }
