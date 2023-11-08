@@ -1,7 +1,17 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
+
 
 export default function Home() {
+
+  const rotaUsuario = useRouter();
+
+
+
+  if(sessionStorage.getItem("token-user")){
   return (
     <>
       <h1>HOME</h1>
@@ -17,4 +27,7 @@ export default function Home() {
 
     </>
     )
-}
+    }else{
+      rotaUsuario.push("/login");
+    }
+  }

@@ -1,8 +1,12 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function Login() {
     
+    //Criando um objeto de redirecionamento!
+    const navigate = useRouter();
+
     const [usuario, setUsuario] = useState({
         "email" : "",
         "senha" : ""
@@ -44,12 +48,28 @@ export default function Login() {
                 const status = await response.json();
                 if(status.status){
                    setMsgStatus("Login realizado com SUCESSO!");
+
+                    const tokenUser = Math.random().toString(16).subString(2) +
+                    Math.random().toString(16).subString(2);
+
+
+                   sessionStorage.setItem("token-user",tokenUser);
+
+                   setTimeout(()=>{
+                    //Redirecionando o usuário!
+                    navigate.push("/");
+                   },5000);
+
                 }else{
                     setMsgStatus("Nome de usuário ou senha inválidos!");
+                    
+                   setTimeout(()=>{
+                    setMsgStatus("");
                     setUsuario({
                         "email":"",
                         "senha":""
                     });
+                   },5000);
                 }
             }
             
@@ -63,7 +83,10 @@ export default function Login() {
   return (
     <div>
         <h1 className="text-4xl text-center p-2 font-extrabold">Identificação de Usuários</h1>
-        <h2>-</h2>
+
+        <h2 className={classeMsg}>{msgStatus}</h2>
+
+
         <div className="form-login">
             <form onSubmit={handleSubmit}>
                 <fieldset>
