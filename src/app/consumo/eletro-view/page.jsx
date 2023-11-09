@@ -18,7 +18,7 @@ export default async function EletroView() {
   return (
     <div className="eletro-view">
         <h1>Consumo de Eletrodomésticos</h1>
-        <div>
+        <div> 
             <ul>
                 {
                     eletros.map((item)=>(

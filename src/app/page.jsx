@@ -2,14 +2,9 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-
-
-
 export default function Home() {
 
-  const rotaUsuario = useRouter();
-
-
+  const navigate = useRouter();
 
   if(sessionStorage.getItem("token-user")){
   return (
@@ -27,7 +22,7 @@ export default function Home() {
 
     </>
     )
-    }else{
-      rotaUsuario.push("/login");
-    }
+  }else{
+    navigate.push("/login");
   }
+}

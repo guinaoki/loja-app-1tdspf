@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 export default function Login() {
     
-    //Criando um objeto de redirecionamento!
     const navigate = useRouter();
 
     const [usuario, setUsuario] = useState({
@@ -16,7 +15,6 @@ export default function Login() {
     const [classeMsg, setClasseMsg] = useState("");
 
     useEffect(() => {
-      //Só será executado, caso o estado do msgStatus se alterar.
         if(msgStatus == "Login realizado com SUCESSO!"){
             setClasseMsg("login-sucesso");
         }else if(msgStatus == "Nome de usuário ou senha inválidos!"){
@@ -49,14 +47,13 @@ export default function Login() {
                 if(status.status){
                    setMsgStatus("Login realizado com SUCESSO!");
 
-                    const tokenUser = Math.random().toString(16).subString(2) +
-                    Math.random().toString(16).subString(2);
+                    //Gerando o Token:
+                    const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
 
-
+                   //Criando o token de autenticação do usuário:
                    sessionStorage.setItem("token-user",tokenUser);
 
                    setTimeout(()=>{
-                    //Redirecionando o usuário!
                     navigate.push("/");
                    },5000);
 
