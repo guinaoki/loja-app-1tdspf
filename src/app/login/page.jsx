@@ -1,4 +1,5 @@
 "use client";
+import { data } from "autoprefixer";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -43,8 +44,8 @@ export default function Login() {
             });
 
             if(response.ok){
-                const status = await response.json();
-                if(status.status){
+                const data = await response.json();
+                if(data.status){
                    setMsgStatus("Login realizado com SUCESSO!");
 
                     //Gerando o Token:
@@ -63,6 +64,7 @@ export default function Login() {
                    setTimeout(()=>{
                     setMsgStatus("");
                     setUsuario({
+                        "info":"",
                         "email":"",
                         "senha":""
                     });
